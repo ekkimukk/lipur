@@ -2,6 +2,8 @@
 
 pkgs.mkShell {
   nativeBuildInputs = with pkgs.buildPackages; [
-    gcc readline libedit
+    gcc
+    readline
+    libedit
   ];
 }
