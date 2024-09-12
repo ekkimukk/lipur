@@ -7,13 +7,21 @@
 #include <readline/history.h>
 /* or your distro libraries (NixOS is mine) */
 
+typedef struct mpc_ast_t {
+  char *tag;
+  char *contents;
+  mpc_state_t state;
+  int children_num;
+  struct mpc_ast_t **children;
+} mpc_ast_t;
+
 int 
 main(int argc, char *argv[])
 {
-  mpc_parser_t* Number   = mpc_new("number");
-  mpc_parser_t* Operator = mpc_new("operator");
-  mpc_parser_t* Expr     = mpc_new("expr");
-  mpc_parser_t* Lipur    = mpc_new("lipur");
+  mpc_parser_t *Number   = mpc_new("number");
+  mpc_parser_t *Operator = mpc_new("operator");
+  mpc_parser_t *Expr     = mpc_new("expr");
+  mpc_parser_t *Lipur    = mpc_new("lipur");
 
   mpca_lang(MPCA_LANG_DEFAULT,
     "                                                                       \
